@@ -1,5 +1,5 @@
 # Aerolab-Challenge
-A catalog view for a loyalty program app, where the user can change points for products.
+A catalog view for a loyalty program app, where the user can change points for products. ** In process !
 
 [Aerolab-Challenge](https://aerolab-coding-challenge-santiabo.vercel.app/)
 
