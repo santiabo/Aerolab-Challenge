@@ -34,6 +34,12 @@ const ProductCard = ({ img, category, name, cost }) => {
   return (
     <>
       <Nav isAvailable={isAvailable()}>
+        {isAvailable() &&
+          <>
+            <BuyIcon />
+            <BuyIcon2 />
+          </>
+        }
         <Wrapper>
           <ImageWrapper>
             <Image src={img} />
@@ -41,15 +47,13 @@ const ProductCard = ({ img, category, name, cost }) => {
               isAvailable() ? <>
 
                 <RedeemWrapper>
-                  <ProductCost>{cost}<Coin2 /></ProductCost>
+                  <ProductCost>{cost} <Coin2 /></ProductCost>
                   <RedeemBox>
                     <RedeemText>Redeem now</RedeemText>
                   </RedeemBox>
                 </RedeemWrapper>
-                <AvailableItem>
-                  <BuyIcon />
-                  <BuyIcon2 />
-                </AvailableItem></>
+                <AvailableItem />
+              </>
                 : <NotAvailableWrapper>
                   <Points>You need {pointsNeeded}</Points>
                   <Coin />

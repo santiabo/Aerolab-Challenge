@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import buyIcon from '../../images/buy-blue.svg';
 import buyIcon2 from '../../images/buy-white.svg';
+import coin from '../../images/coin.svg';
 
 export const Nav = styled.nav` 
 display:flex;
@@ -20,12 +21,14 @@ transition: ${props => props.isAvailable &&  "all 0.2s fade-in-out"};
 
 export const Wrapper= styled.div`
 display: flex;
+position:relative;
 flex-direction:column;
 width:90%;
 height:90%;
 justify-content:space-between;
 align-items:flex-start;
 background:white;
+z-index: 1;
 `;
 
 export const ImageWrapper = styled.div`
@@ -71,33 +74,46 @@ text-align:right;
 background:#616161;
 `;
 
-export const Coin = styled.div`
-background:#f8b013;
-width:15px;
-height:15px;
-border-radius: 100px;
+export const Coin = styled.img`
+width:25px;
+height:25px;
 `;
+Coin.defaultProps ={
+  src:coin
+}
+
+export const Coin2 = styled.img`
+
+`;
+Coin2.defaultProps ={
+  src:coin
+}
 
 export const Image = styled.img`
 margin-top:15px;
+max-height:180px;
+z-index:0;
 `;
+
 export const BuyIcon = styled.img`
-margin-left:220px;
-margin-bottom: 200px;
+position: absolute;
+margin-right: -200px;
+margin-top: 15px;
+z-index: 2;
 ${Nav}:hover & {
   display:none;
   }
 `;
-
-
 BuyIcon.defaultProps ={
   src:buyIcon
 }
 
 export const BuyIcon2 = styled.img`
-margin-left:220px;
-margin-bottom: 200px;
 display:none;
+z-index: 2;
+margin-right: -200px;
+margin-top: 15px;
+position: absolute;
 ${Nav}:hover & {
   opacity:1;
   display:flex;
@@ -111,14 +127,14 @@ BuyIcon2.defaultProps ={
 export const AvailableItem = styled.div`
 display:flex;
 position:absolute;
-min-width:276px;
-min-height:276px;
+min-width:277px;
+min-height:278px;
 margin-top:79px;
 margin-left:-14px;
-border-radius:3px;
+
 z-index:1;
 ${Nav}:hover & {
-  background-image:linear-gradient(-180deg, #0ad4fa 0%, #25bbf1 100%);
+  background:#0ad4fa;
   opacity:0.6;
  
   }
@@ -157,14 +173,17 @@ ${Nav}:hover & {
   }
 `;
 
-export const RedeemBox = styled.div`
+export const RedeemBox = styled.button`
 display:none;
 background:#ffffff;
+outline: none;
+border: 1px solid #ededed;
 width:228px;
 height:42px;
 border-radius:10px;
 justify-content:center;
 align-items:center;
+cursor: pointer;
 
 ${Nav}:hover & {
   opacity:1;
@@ -183,19 +202,14 @@ export const ProductCost = styled.p`
 font-size:36px;
 color:#ffffff;
 letter-spacing:-0.08px;
-min-width:150px;
+min-width:120px;
 display:none;
-justify-content:center;
-align-items:center;
+ align-items:center;
+ justify-content:space-around;
+
 ${Nav}:hover & {
   opacity:1;
   display:flex;
   }
 `;
 
-export const Coin2 = styled.div`
-background:#f8b013;
-width:30px;
-height:30px;
-border-radius: 100px;
-`;
