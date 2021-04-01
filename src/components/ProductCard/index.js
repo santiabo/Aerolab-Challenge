@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import { getUser } from '../../redux/actions/user';
 import {
   Nav,
   ImageWrapper,
@@ -22,13 +23,37 @@ import {
   RedeemWrapper
 } from "./styled"
 
-const ProductCard = ({ img, category, name, cost }) => {
+
+const ProductCard = ({ img, category, name, cost, id }) => {
 
   const userPoints = useSelector(state => state.user.points);
   const pointsNeeded = cost - userPoints;
   const isAvailable = () => {
     if (userPoints >= cost) return true;
     return false;
+  }
+
+  const authAxios = axios.create({
+    baseURL: 'https://coding-challenge-api.aerolab.co',
+  });
+
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    return async () => {
+      try {
+        await authAxios.post(`https://coding-challenge-api.aerolab.co/redeem`,{ 
+          "productId": "5a0b3678734d1d08bf708537"
+        }, {
+          headers: {
+            Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDRmYWNmMDdlNzE4NzAwMjBlMzhmOGIiLCJpYXQiOjE2MTU4MzQzNTJ9.fBvgjWDMXYCOOAxpEqsrIAs3wC0OKb_tn8MQ4oZ_W8s"}`
+          }         
+        });
+        dispatch(getUser());
+        alert("Product redeemed !")
+      } catch (err) {
+        console.log(err);
+      }
+    };
   }
 
   return (
@@ -48,7 +73,7 @@ const ProductCard = ({ img, category, name, cost }) => {
 
                 <RedeemWrapper>
                   <ProductCost>{cost} <Coin2 /></ProductCost>
-                  <RedeemBox>
+                  <RedeemBox onClick={handleClick()}>
                     <RedeemText>Redeem now</RedeemText>
                   </RedeemBox>
                 </RedeemWrapper>

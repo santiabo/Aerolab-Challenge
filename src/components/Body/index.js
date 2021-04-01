@@ -13,6 +13,7 @@ const Body = ({currentProducts}) => {
               name={prod.name}
               cost={prod.cost}
               category={prod.category}
+              id={prod._id}
             />)}
           </Wrapper>
         </Nav>
