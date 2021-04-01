@@ -4,6 +4,7 @@ import axios from 'axios';
 import { getUser } from '../../redux/actions/user';
 import {
   Nav,
+  Div,
   ImageWrapper,
   Image,
   ProductNameWrapper,
@@ -52,6 +53,7 @@ const ProductCard = ({ img, category, name, cost, id }) => {
         alert("Product redeemed !")
       } catch (err) {
         console.log(err);
+        alert("User don't have enogh points")
       }
     };
   }
@@ -60,10 +62,10 @@ const ProductCard = ({ img, category, name, cost, id }) => {
     <>
       <Nav isAvailable={isAvailable()}>
         {isAvailable() &&
-          <>
+          <Div>
             <BuyIcon />
             <BuyIcon2 />
-          </>
+          </Div>
         }
         <Wrapper>
           <ImageWrapper>

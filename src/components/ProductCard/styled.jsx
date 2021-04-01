@@ -19,6 +19,12 @@ transition: ${props => props.isAvailable &&  "all 0.2s fade-in-out"};
 };
 `;
 
+export const Div = styled.div`
+display:flex;
+flex-direction:column;
+align-items:flex-start;
+`;
+
 export const Wrapper= styled.div`
 display: flex;
 position:relative;
@@ -97,7 +103,7 @@ z-index:0;
 
 export const BuyIcon = styled.img`
 position: absolute;
-margin-right: -200px;
+
 margin-top: 15px;
 z-index: 2;
 ${Nav}:hover & {
@@ -111,11 +117,10 @@ BuyIcon.defaultProps ={
 export const BuyIcon2 = styled.img`
 display:none;
 z-index: 2;
-margin-right: -200px;
+
 margin-top: 15px;
 position: absolute;
 ${Nav}:hover & {
-  opacity:1;
   display:flex;
   }
 `;
