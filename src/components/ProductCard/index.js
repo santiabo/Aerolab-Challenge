@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+
 import { getUser } from '../../redux/actions/user';
 import {
   Nav,
@@ -42,12 +43,12 @@ const ProductCard = ({ img, category, name, cost, id }) => {
   const handleClick = () => {
     return async () => {
       try {
-        await authAxios.post(`https://coding-challenge-api.aerolab.co/redeem`,{ 
+        await authAxios.post(`https://coding-challenge-api.aerolab.co/redeem`, {
           "productId": "5a0b3678734d1d08bf708537"
         }, {
           headers: {
             Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDRmYWNmMDdlNzE4NzAwMjBlMzhmOGIiLCJpYXQiOjE2MTU4MzQzNTJ9.fBvgjWDMXYCOOAxpEqsrIAs3wC0OKb_tn8MQ4oZ_W8s"}`
-          }         
+          }
         });
         dispatch(getUser());
         alert("Product redeemed !")
@@ -69,7 +70,7 @@ const ProductCard = ({ img, category, name, cost, id }) => {
         }
         <Wrapper>
           <ImageWrapper>
-            <Image src={img} />
+          <Image src={img} />           
             {
               isAvailable() ? <>
 

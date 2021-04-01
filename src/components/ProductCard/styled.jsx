@@ -1,7 +1,13 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import buyIcon from '../../images/buy-blue.svg';
 import buyIcon2 from '../../images/buy-white.svg';
 import coin from '../../images/coin.svg';
+
+const imageRender = keyframes`
+ 0% { opacity: 0 }
+
+ 100% { opacity: 1 }
+`
 
 export const Nav = styled.nav` 
 display:flex;
@@ -42,6 +48,7 @@ display:flex;
 width:100%;
 align-items: center;
 border-bottom: 1px solid #ededed;
+animation: 1s ease-out 0s 1 opacity;
 `;
 
 export const ProductNameWrapper = styled.div`
@@ -99,6 +106,11 @@ export const Image = styled.img`
 margin-top:15px;
 max-height:180px;
 z-index:0;
+animation-name: ${imageRender};
+ animation-duration: .5s;
+ animation-iteration-count: 1;
+ animation-timing-function: ease-out;
+ animation-delay: 0s;
 `;
 
 export const BuyIcon = styled.img`
