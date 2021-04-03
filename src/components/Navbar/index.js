@@ -6,6 +6,7 @@ import {
   SortBy,
   ProductsQuantity,
   PageButton,
+  PageButtonOff,
   SortButton,
   PageWrapper,
   ArrowRight,
@@ -63,12 +64,14 @@ const Navbar = ({ productsPerPage, totalProducts, paginate, indexOfLastProduct, 
             </SortButton>
           </SortWrapper>
           <PageWrapper>
-            {currentPage !== pageNumbers[0] &&
-              <>
-                <PageButton onClick={() => paginate("previous")} ><ArrowLeft /></PageButton>
-              </>
+            {currentPage !== pageNumbers[0] ?
+              <PageButton onClick={() => paginate("previous")} ><ArrowLeft /></PageButton> :
+              <PageButtonOff><ArrowLeft /></PageButtonOff>
             }
-            <PageButton onClick={() => paginate("next")} ><ArrowRight /></PageButton>
+            {currentPage !== pageNumbers[pageNumbers.length - 1] ?
+              <PageButton onClick={() => paginate("next")} ><ArrowRight /></PageButton> :
+              <PageButtonOff> <ArrowRight /></PageButtonOff>
+            }
           </PageWrapper>
         </Wrapper>
 

@@ -74,7 +74,17 @@ background: #f9f9f9;
 cursor:pointer;
 margin: 5px;
 border:1px solid #d9d9d9;
-outline: none;
+width:46px;
+height:46px;
+border-radius:100%;
+font-weight: 100;
+font-size: 1rem;
+`;
+
+export const PageButtonOff = styled.button`
+background: #d9d9d9;
+margin: 5px;
+border:none;
 width:46px;
 height:46px;
 border-radius:100%;

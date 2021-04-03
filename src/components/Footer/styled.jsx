@@ -48,6 +48,17 @@ font-weight: 100;
 font-size: 1rem;
 `;
 
+export const PageButtonOff = styled.button`
+background: #d9d9d9;
+margin: 5px;
+border:none;
+width:46px;
+height:46px;
+border-radius:100%;
+font-weight: 100;
+font-size: 1rem;
+`;
+
 export const ArrowRight = styled.i`
   border: solid #a3a3a3;
   border-width: 0 1px 1px 0;

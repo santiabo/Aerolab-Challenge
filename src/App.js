@@ -14,6 +14,7 @@ function App() {
 
   const sortedBy = useSelector(state => state.sort.sort)
   const products = useSelector(state => state.products);
+  const loading = useSelector(state => state.loading.loading);
 
   const [prods, setProds] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -69,7 +70,8 @@ function App() {
     if (changePage === "start" && currentPage !== 1) setCurrentPage(1);
   }
 
-  return (
+ if(loading) return null ;
+   return (
     <div>
       <GlobalStyle />
       <Header />
@@ -81,16 +83,14 @@ function App() {
         indexOfLastProduct={indexOfLastProduct}
         currentPage={currentPage}
       />
-      <Body currentProducts={currentProducts} />
-      <Footer
-        productsPerPage={productsPerPage}
-        indexOfLastProduct={indexOfLastProduct}
-        totalProducts={products.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
-
-
+            <Body currentProducts={currentProducts} />
+            <Footer
+              productsPerPage={productsPerPage}
+              indexOfLastProduct={indexOfLastProduct}
+              totalProducts={products.length}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
     </div>
   );
 }

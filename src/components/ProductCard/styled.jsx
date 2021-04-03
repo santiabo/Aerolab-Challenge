@@ -18,6 +18,11 @@ box-shadow:2px 2px 4px 0 rgba(0,0,0,0.10);
 width:276px;
 height:276px;
 transition: all 0.3s ease-in-out;
+animation-name: ${imageRender};
+ animation-duration: .7s;
+ animation-iteration-count: 1;
+ animation-timing-function: ease-in;
+ animation-delay: 0s;
 
 &:hover {
 transform: ${props => props.isAvailable && "scale(1.1)"};
@@ -106,11 +111,7 @@ export const Image = styled.img`
 margin-top:15px;
 max-height:180px;
 z-index:0;
-animation-name: ${imageRender};
- animation-duration: .5s;
- animation-iteration-count: 1;
- animation-timing-function: ease-out;
- animation-delay: 0s;
+
 `;
 
 export const BuyIcon = styled.img`

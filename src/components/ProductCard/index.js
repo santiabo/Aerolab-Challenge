@@ -51,10 +51,10 @@ const ProductCard = ({ img, category, name, cost, id }) => {
           }
         });
         dispatch(getUser());
-        alert("Product redeemed !")
+        alert("Product redeemed !") //Change for a modal !
       } catch (err) {
         console.log(err);
-        alert("User don't have enogh points")
+        alert("User doesn't have enogh points") //Change for a modal !
       }
     };
   }

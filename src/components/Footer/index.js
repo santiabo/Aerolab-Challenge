@@ -5,6 +5,7 @@ import {
   Div,
   PageWrapper,
   PageButton,
+  PageButtonOff,
   ArrowLeft,
   ArrowRight,
   Nav
@@ -25,12 +26,15 @@ function Footer({ indexOfLastProduct, paginate, currentPage, productsPerPage, to
       <Div>
         <ProductsQuantity>{indexOfLastProduct} of {products.length} products</ProductsQuantity>
         <PageWrapper>
-          {currentPage !== pageNumbers[0] &&
-            <>
-              <PageButton onClick={() => paginate("previous")} ><ArrowLeft /></PageButton>
-            </>
+          {currentPage !== pageNumbers[0] ?
+            <PageButton onClick={() => paginate("previous")} ><ArrowLeft /></PageButton> :
+            <PageButtonOff><ArrowLeft /></PageButtonOff>
+
           }
-          <PageButton onClick={() => paginate("next")} ><ArrowRight /></PageButton>
+          {currentPage !== pageNumbers[pageNumbers.length - 1] ?
+            <PageButton onClick={() => paginate("next")} ><ArrowRight /></PageButton> :
+            <PageButtonOff> <ArrowRight /></PageButtonOff>
+          }
         </PageWrapper>
       </Div>
     </Nav>
